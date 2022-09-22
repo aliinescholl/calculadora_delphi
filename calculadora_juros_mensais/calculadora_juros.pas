@@ -1,0 +1,118 @@
+unit calculadora_juros;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TDesconto = (d180, d360, d_ate720, d_maisque720);
+  TOpcoes = (opMensaisSimples, opAnuaisSimples, opAnuaisCompostos);
+
+  TForm1 = class(TForm)
+    edt_valor_investido: TEdit;
+    edt_rentabilidade: TEdit;
+    btn_calcular: TButton;
+    label_resultado: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    grupo_ir: TRadioGroup;
+    Label4: TLabel;
+    radio_grou_opcoes: TRadioGroup;
+    procedure btn_calcularClick(Sender: TObject);
+
+  private
+    procedure CalcularJurosMensaisSimples;
+    procedure CalcularJurosAnuaisSimples;
+    // procedure CalcularJurosAnuaisCompostos;
+    procedure desconto_ir(var aresultado: Double);
+
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.desconto_ir(var aresultado: Double);
+var
+  xdesconto: Double;
+begin
+  case TDesconto(grupo_ir.ItemIndex) of
+    d180:
+      begin
+        xdesconto := 0.225 * aresultado;
+        aresultado := aresultado - xdesconto;
+      end;
+
+    d360:
+      begin
+        xdesconto := 0.2 * aresultado;
+        aresultado := aresultado - xdesconto;
+      end;
+
+    d_ate720:
+      begin
+        xdesconto := 0.175 * aresultado;
+        aresultado := aresultado - xdesconto;
+      end;
+
+    d_maisque720:
+      begin
+        xdesconto := 0.15 * aresultado;
+        aresultado := aresultado - xdesconto;
+      end;
+  end;
+end;
+
+procedure TForm1.CalcularJurosMensaisSimples;
+var
+  xresultado, xvalor_investido, xrentabilidade: Double;
+
+begin
+  xvalor_investido := StrToInt(edt_valor_investido.Text);
+  xrentabilidade := StrToInt(edt_rentabilidade.Text);
+  xrentabilidade := (xrentabilidade / 12) / 100;
+  xresultado := xvalor_investido * xrentabilidade;
+  desconto_ir(xresultado);
+  label_resultado.Caption := 'Você terá um rendimento mensal de R$' +
+    FormatFloat('#,##0.00', xresultado) + ' por mês';
+
+end;
+
+procedure TForm1.CalcularJurosAnuaisSimples;
+var
+  xresultado, xvalor_investido, xrentabilidade, xresultadoanual: Double;
+
+begin
+  xvalor_investido := StrToInt(edt_valor_investido.Text);
+  xrentabilidade := StrToInt(edt_rentabilidade.Text);
+  xrentabilidade := xrentabilidade / 100;
+  xresultado := xvalor_investido * xrentabilidade;
+  xresultadoanual := xresultado + xvalor_investido;
+  desconto_ir(xresultado);
+  label_resultado.Caption := 'Você terá um rendimento anual de R$' +
+    FormatFloat('#,##0.00', xresultado) + ' por ano';
+
+end;
+
+procedure TForm1.btn_calcularClick(Sender: TObject);
+begin
+  case TOpcoes(radio_grou_opcoes.ItemIndex) of
+
+    opMensaisSimples:
+      CalcularJurosMensaisSimples;
+
+    opAnuaisSimples:
+      CalcularJurosAnuaisSimples;
+  end;
+end;
+
+end.
