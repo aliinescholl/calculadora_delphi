@@ -16,7 +16,7 @@ object Form1: TForm1
   object label_resultado: TLabel
     Left = 56
     Top = 505
-    Width = 121
+    Width = 4
     Height = 16
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -113,8 +113,7 @@ object Form1: TForm1
     Color = 10549400
     Items.Strings = (
       'Juros Mensais Simples'
-      'Juros Anuais Simples'
-      'Juros Anuais Compostos')
+      'Juros Anuais Simples')
     ParentBackground = False
     ParentColor = False
     TabOrder = 4

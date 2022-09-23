@@ -26,7 +26,7 @@ type
   private
     procedure CalcularJurosMensaisSimples;
     procedure CalcularJurosAnuaisSimples;
-    // procedure CalcularJurosAnuaisCompostos;
+
     procedure desconto_ir(var aresultado: Double);
 
     { Private declarations }
