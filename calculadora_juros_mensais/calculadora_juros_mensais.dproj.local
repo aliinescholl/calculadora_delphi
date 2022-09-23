@@ -2,8 +2,8 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2022/09/21 18:08:39.000.573,=C:\Users\alinescholl\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2022/09/21 18:20:32.000.580,C:\Users\alinescholl\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\alinescholl\Documents\delphi_atvs\testes\calculadora_juros.pas</Transaction>
-    <Transaction>2022/09/21 18:20:32.000.581,C:\Users\alinescholl\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\alinescholl\Documents\delphi_atvs\testes\calculadora_juros.dfm</Transaction>
-    <Transaction>2022/09/21 18:35:22.000.481,C:\Users\alinescholl\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\alinescholl\Documents\delphi_atvs\testes\calculadora_juros_mensais.dproj</Transaction>
+    <Transaction>2022/09/21 18:20:32.000.580,C:\Users\alinescholl\Documents\delphi_atvs\testes\calculadora_juros.pas=C:\Users\alinescholl\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/09/21 18:20:32.000.581,C:\Users\alinescholl\Documents\delphi_atvs\testes\calculadora_juros.dfm=C:\Users\alinescholl\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2022/09/21 18:35:22.000.481,C:\Users\alinescholl\Documents\delphi_atvs\testes\calculadora_juros_mensais.dproj=C:\Users\alinescholl\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
   </Transactions>
 </BorlandProject>
